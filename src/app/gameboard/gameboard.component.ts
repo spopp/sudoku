@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Input } from '@angular/core';
 
 import { FocusDirective } from "../focus.directive"; 
 
-/*import { TileComponent } from './tile.component';*/
+import { TileComponent } from './tile.component';
 
 
 @Component({
-  selector: 'app-gameboard',
+  selector: 'gameboard-component',
   templateUrl: './gameboard.component.html',
   styleUrls: ['./gameboard.component.scss']
 })
@@ -25,9 +25,10 @@ export class GameboardComponent implements OnInit {
   	for (let i = 0; i < 9; i ++) {
       this.field[i] = [];
       for(let n = 0; n < 9; n ++) {
-        this.field[i].push(1);
+        this.field[i].push(n +1);
       }
     }
+    console.log(this.field)
   }
 
   onKey($event){
@@ -46,6 +47,11 @@ export class GameboardComponent implements OnInit {
       this.rowPos += 1;
       if (this.rowPos > 8) this.rowPos = 0;
     }
+  }
+
+  onChanged(event: any): void {
+    console.log(event.key);
+    alert(event.key);
   }
 
 }

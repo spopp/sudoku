@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-tile',
+  selector: 'tile-component',
   templateUrl: './tile.component.html',
   styleUrls: ['./tile.component.scss']
 })
-export class TileComponent implements OnInit {
+export class TileComponent {
 
-  value: number;
+  @Input() value: number = 0;
+  
+  @Output() changed: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(value: number) {
-    this.value = value
+  constructor() {
+  	this.value;
   }
 
-  ngOnInit() {
+  onChanged(evt) {
+  	this.changed.emit(evt);
   }
 
 }
