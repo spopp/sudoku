@@ -5,6 +5,9 @@ import { FocusDirective } from './focus.directive';
 
 import { TileComponent } from './gameboard/tile.component';
 import { GameboardComponent } from './gameboard/gameboard.component';
+/*import { GameCreatorService } from './game-creator.service';
+
+import { GameModel } from './game-model';*/
 
 /*import { AppRoutingModule } from './app-routing.module';*/
 
@@ -23,7 +26,7 @@ import { AppComponent } from './app.component';
     BrowserModule/*,
     AppRoutingModule*/
   ],
-  providers: [],
+  /*providers: [GameCreatorService, GameModel],*/
   bootstrap: [AppComponent]
 })
 export class AppModule { }

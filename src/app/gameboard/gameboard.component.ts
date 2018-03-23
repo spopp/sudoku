@@ -4,31 +4,45 @@ import { FocusDirective } from "../focus.directive";
 
 import { TileComponent } from './tile.component';
 
+import { GameModel } from '../game-model';
+import { GameCreatorService } from '../game-creator.service';
+
+
+
+/*import { GameModel } from '../game-model';*/
+
 
 @Component({
   selector: 'gameboard-component',
   templateUrl: './gameboard.component.html',
-  styleUrls: ['./gameboard.component.scss']
+  styleUrls: ['./gameboard.component.scss']/*,
+  providers: [ GameCreatorService ]*/
 })
 export class GameboardComponent implements OnInit {
 
+  /*game: GameModel;*/
+  
   field: any[];
   columnPos: number = 0; 
   rowPos: number = 0;
 
 
-  constructor() {
+  constructor(/*gameService: GameCreatorService*/) {
   	this.field = []
   }
 
   ngOnInit() {
+    /*this.updateGame();*/
   	for (let i = 0; i < 9; i ++) {
       this.field[i] = [];
       for(let n = 0; n < 9; n ++) {
         this.field[i].push(n +1);
       }
     }
-    console.log(this.field)
+  }
+
+  updateGame(): void {
+    /*this.game = this.gameService.getGame();*/
   }
 
   onKey($event){
@@ -50,8 +64,7 @@ export class GameboardComponent implements OnInit {
   }
 
   onChanged(event: any): void {
-    console.log(event.key);
-    alert(event.key);
+    console.log(event  );
   }
 
 }
