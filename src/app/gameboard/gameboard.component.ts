@@ -8,41 +8,29 @@ import { GameModel } from '../game-model';
 import { GameCreatorService } from '../game-creator.service';
 
 
-
-/*import { GameModel } from '../game-model';*/
-
-
 @Component({
   selector: 'gameboard-component',
   templateUrl: './gameboard.component.html',
-  styleUrls: ['./gameboard.component.scss']/*,
-  providers: [ GameCreatorService ]*/
+  styleUrls: ['./gameboard.component.scss'],
+  providers: [ GameCreatorService ]
 })
 export class GameboardComponent implements OnInit {
 
-  /*game: GameModel;*/
-  
-  field: any[];
+  game: GameModel;
   columnPos: number = 0; 
   rowPos: number = 0;
 
 
-  constructor(/*gameService: GameCreatorService*/) {
-  	this.field = []
+  constructor(private gameService: GameCreatorService) {
   }
 
   ngOnInit() {
-    /*this.updateGame();*/
-  	for (let i = 0; i < 9; i ++) {
-      this.field[i] = [];
-      for(let n = 0; n < 9; n ++) {
-        this.field[i].push(n +1);
-      }
-    }
+    this.game = this.updateGame();
+    console.log(this.game)
   }
 
-  updateGame(): void {
-    /*this.game = this.gameService.getGame();*/
+  updateGame(): GameModel {
+    return this.gameService.getGame();
   }
 
   onKey($event){

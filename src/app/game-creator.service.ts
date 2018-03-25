@@ -5,7 +5,7 @@ import { GameModel } from './game-model';
 @Injectable()
 export class GameCreatorService {
 
-  gameSpec: string = '1----7-9--3--2---8--96--5----53--9---1--8---26----4---3------1--3------7';
+  gameSpec: string = '123457090030020008009600500005300900010080002600004003000000100300000070000001234';
   originalSpec: string;
 
   constructor() {
@@ -17,7 +17,7 @@ export class GameCreatorService {
     let currentValue: number;
 
     for(let i = 0; i < gameSpec.length; i++) {
-      currentValue = parseInt(gameSpec[i]) || 0;
+      currentValue = parseInt(gameSpec[i]);
       values.push(currentValue); 
     }
 
