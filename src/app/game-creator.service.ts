@@ -5,23 +5,22 @@ import { GameModel } from './game-model';
 @Injectable()
 export class GameCreatorService {
 
-  gameSpec: string = '123457090030020008009600500005300900010080002600004003000000100300000070000001234';
-  originalSpec: string;
+  rows = 9;
+  columns = 9;
+  values: number[][] = [
+    [1,0,0,0,0,7,0,9,0],
+    [0,3,0,0,2,0,0,0,8],
+    [0,0,9,6,0,0,5,0,0],
+    [0,0,5,3,0,0,9,0,0],
+    [0,1,0,0,8,0,0,0,2],
+    [6,0,0,0,0,4,0,0,0],
+    [3,0,0,0,0,0,0,1,0],
+    [0,4,0,0,0,0,0,0,7],
+    [0,0,7,0,0,0,3,0,0]]
 
-  constructor() {
-  	this.originalSpec = this.gameSpec;
-  }
 
-  getGame(gameSpec: string = this.gameSpec): GameModel {
-    let values: number[] = [];
-    let currentValue: number;
-
-    for(let i = 0; i < gameSpec.length; i++) {
-      currentValue = parseInt(gameSpec[i]);
-      values.push(currentValue); 
-    }
-
-    return new GameModel(values);
+  getGame(rows=this.rows, columns=this.columns, values=this.values): GameModel {
+    return new GameModel(rows, columns, values);
   }
 
 }
