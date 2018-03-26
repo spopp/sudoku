@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'tile-component',
   templateUrl: './tile.component.html',
@@ -7,16 +8,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TileComponent {
 
-  @Input() value: number = 0;
-  
+  @Input() value: any;
+
   @Output() changed: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() {
-  	this.value;
-  }
-
   onChanged(evt) {
-  	this.changed.emit(evt);
+    this.changed.emit(evt);
   }
 
 }
