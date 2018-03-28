@@ -2,7 +2,7 @@
 
 export class GameModel {
 
-	rows: number;
+  rows: number;
   columns: number;
   fields: number[][];
 
@@ -14,4 +14,10 @@ export class GameModel {
 
     console.log('GameModel ' + this.fields)
   }
+  
+  cellIsEmpty(row, column) : boolean {
+  	return this.fields[row][column] === 0;
+  }
+
+
 }

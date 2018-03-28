@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FocusDirective } from './focus.directive';
 import { GameboardComponent } from './gameboard/gameboard.component';
 import { GameCreatorService } from './game-creator.service';
+import { GameSolutionService } from './game-solution.service';
 /*import { AppRoutingModule } from './app-routing.module';*/
 
 import { AppComponent } from './app.component';
@@ -20,7 +21,10 @@ import { AppComponent } from './app.component';
     BrowserModule/*,
     AppRoutingModule*/
   ],
-  providers: [GameCreatorService],
+  providers: [
+    GameCreatorService,
+    GameSolutionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

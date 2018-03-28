@@ -1,6 +1,6 @@
 import { Component, OnInit,  Input } from '@angular/core';
 
-import { FocusDirective } from "../focus.directive"; 
+import { FocusDirective } from "../focus.directive";  
 import { GameModel } from '../game-model';
 import { GameCreatorService } from '../game-creator.service';
 
@@ -35,7 +35,11 @@ export class GameboardComponent implements OnInit {
     return (value > 0) ? String(value) : '';
   }
 
-  onKey($event){
+  cellIsEmpty(row, column) :boolean {
+    return this.game.cellIsEmpty(row, column);
+  }
+
+  onKey($event) :void {
     let keyCode = $event.keyCode;
     
     if (keyCode === 37) { //left arrow

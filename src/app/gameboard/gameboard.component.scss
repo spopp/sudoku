@@ -16,8 +16,37 @@ input {
   font-weight: 400;
   width: 50px;
   height: 50px;
+  border-width: 1px;
+  border-style: solid;
 }
 
+ input:disabled { 
+   background-color: #FFE6CC;
+ }
+
+ input:enabled {
+   background-color: #E6FFE6;
+ }
+
 .game-row {
-	display: inline-block;
+  display: inline-block;	
+}
+
+.game-row:first-child {
+  border-left: 4px dashed;
+}
+
+
+.game-row:nth-child(3n) {
+  border-right: 4px dashed;
+}
+
+
+.game-cell:first-child {
+  border-top: 4px dashed;
+}
+
+
+.game-cell:nth-child(3n) {
+  border-bottom: 4px dashed;
 }
