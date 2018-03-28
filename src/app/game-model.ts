@@ -12,6 +12,6 @@ export class GameModel {
     this.columns = columns;
     this.fields = values;
 
-    console.log(this.fields)
+    console.log('GameModel ' + this.fields)
   }
 }

@@ -1,13 +1,15 @@
- <div class="board-container">
+<div class="board-container">
 
-<table>
+<div class="game-layout">
+  <div class="game-row" *ngFor="let row of game.fields; let i = index;">
 
+    <div class="game-cell" *ngFor="let column of row; let n = index;">
+      <input [focus]="i === columnPos && n === rowPos" 
+      [value]=format(game.fields[n][i])
+      (keyup)="onKey($event)" >
+    </div>
 
-  <tr *ngFor="let row of game.fields; let i = index;">
-    <td *ngFor="let column of row; let n = index;">
-      <tile-component [value]=format(game.fields[i][n]) (keyup)="onChanged($event)"></tile-component>
-    </td>
-  </tr>
+  </div>
+</div>
 
-</table>
 </div>

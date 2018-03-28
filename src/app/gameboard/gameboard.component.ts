@@ -1,9 +1,6 @@
 import { Component, OnInit,  Input } from '@angular/core';
 
 import { FocusDirective } from "../focus.directive"; 
-
-import { TileComponent } from './tile.component';
-
 import { GameModel } from '../game-model';
 import { GameCreatorService } from '../game-creator.service';
 
@@ -16,17 +13,18 @@ import { GameCreatorService } from '../game-creator.service';
 })
 export class GameboardComponent implements OnInit {
 
+  /*@Input('focus')*/
+
   game: GameModel;
   columnPos: number = 0; 
   rowPos: number = 0;
 
 
-  constructor(private gameService: GameCreatorService) {
-  }
+  constructor(private gameService: GameCreatorService) {}
 
   ngOnInit() {
     this.game = this.updateGame();
-    /*console.log(this.game)*/
+    console.log('gameboard.component ' + this.game);
   }
 
   updateGame(): GameModel {
@@ -41,15 +39,19 @@ export class GameboardComponent implements OnInit {
     let keyCode = $event.keyCode;
     
     if (keyCode === 37) { //left arrow
+      /*console.log('left arrow');*/
       this.columnPos -= 1;
       if (this.columnPos < 0) this.columnPos = 8;
     } else if (keyCode === 38) { //up arrow
+      /*console.log('up arrow');*/
       this.rowPos -= 1;
       if (this.rowPos < 0) this.rowPos = 8;
     } else if (keyCode === 39) { //right arrow
+      /*console.log('right arrow');*/
       this.columnPos += 1;
       if (this.columnPos > 8) this.columnPos = 0;
     } else if (keyCode === 40) { //down arrow
+      /*console.log('down arrow');*/
       this.rowPos += 1;
       if (this.rowPos > 8) this.rowPos = 0;
     }

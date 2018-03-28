@@ -20,7 +20,9 @@ export class GameCreatorService {
 
 
   getGame(rows=this.rows, columns=this.columns, values=this.values): GameModel {
-    return new GameModel(rows, columns, values);
+
+    console.log('game-creator.service ' + this.values);
+    return new GameModel(this.rows, this.columns, this.values);
   }
 
 }
