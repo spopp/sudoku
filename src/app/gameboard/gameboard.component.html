@@ -1,16 +1,23 @@
 <div class="board-container">
 
 <div class="game-layout">
-  <div class="game-row" *ngFor="let row of game.fields; let i = index;">
+  <div class="game-row" *ngFor="let row of game.values; let i = index;">
 
     <div class="game-cell" *ngFor="let column of row; let n = index;">
       <input [focus]="i === columnPos && n === rowPos"
+      maxlength=1
       [value]="format(game.fields[n][i])"
       [disabled]="! cellIsEmpty(n, i)"
+      [ngClass]="! cellIsEmpty(n, i)  ? 'original-cell' : 'user-cell'"
       (keyup)="onKey($event)" >
     </div>
 
   </div>
 </div>
+
+  <button class="solve"
+    (click)="solve()">
+    Solve
+  </button>
 
 </div>

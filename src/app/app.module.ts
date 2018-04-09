@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+/*import { NgClass } from '@angular/common';*/
 
 import { FocusDirective } from './focus.directive';
 import { GameboardComponent } from './gameboard/gameboard.component';
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     FocusDirective,
+    /*NgClass,*/
     GameboardComponent
   ],
   imports: [

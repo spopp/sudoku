@@ -3,32 +3,40 @@ import { Component, OnInit,  Input } from '@angular/core';
 import { FocusDirective } from "../focus.directive";  
 import { GameModel } from '../game-model';
 import { GameCreatorService } from '../game-creator.service';
+import { GameSolutionService } from '../game-solution.service';
 
 
 @Component({
   selector: 'gameboard-component',
   templateUrl: './gameboard.component.html',
   styleUrls: ['./gameboard.component.scss'],
-  providers: [ GameCreatorService ]
+  providers: [
+    GameCreatorService,
+    GameSolutionService
+  ]
 })
 export class GameboardComponent implements OnInit {
 
   /*@Input('focus')*/
 
   game: GameModel;
+  originalGame: GameModel;
   columnPos: number = 0; 
   rowPos: number = 0;
 
 
-  constructor(private gameService: GameCreatorService) {}
+  constructor(
+    private creatorService: GameCreatorService,
+    private solutionService: GameSolutionService) {}
 
   ngOnInit() {
     this.game = this.updateGame();
-    console.log('gameboard.component ' + this.game);
+    this.originalGame = this.creatorService.import(this.game.export())
+    console.log('gameboard.component ngOnInit ' + this.game);
   }
 
   updateGame(): GameModel {
-    return this.gameService.getGame();
+    return this.creatorService.getGame();
   }
 
   format(value: number) : any {
@@ -63,6 +71,10 @@ export class GameboardComponent implements OnInit {
 
   onChanged(event: any): void {
     console.log(event);
+  }
+
+  solve(): void {
+    this.solutionService.solve(this.game)
   }
 
 }

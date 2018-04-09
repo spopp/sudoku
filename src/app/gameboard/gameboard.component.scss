@@ -50,3 +50,11 @@ input {
 .game-cell:nth-child(3n) {
   border-bottom: 4px dashed;
 }
+
+.original-cell {
+  font-weight: bold;
+}
+
+.user-cell {
+  font-weight: normal;
+}

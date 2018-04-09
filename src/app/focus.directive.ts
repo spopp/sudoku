@@ -10,7 +10,6 @@ export class FocusDirective {
 
   protected ngOnChanges() {
       if (this.focus)
-        console.log(this.element.nativeElement)
         this.element.nativeElement.focus();
     }
 

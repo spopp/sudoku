@@ -4,20 +4,24 @@ export class GameModel {
 
   rows: number;
   columns: number;
-  fields: number[][];
+  values: number[][];
 
 	constructor(rows: number, columns: number, values: number[][]) {
 
     this.rows = rows;
     this.columns = columns;
-    this.fields = values;
+    this.values = values;
 
-    console.log('GameModel ' + this.fields)
+    console.log('GameModel ' + this.values)
   }
   
   cellIsEmpty(row, column) : boolean {
-  	return this.fields[row][column] === 0;
+  	return this.values[row][column] === 0;
   }
 
+  export() : any {
+    
+  }
 
+ 
 }
