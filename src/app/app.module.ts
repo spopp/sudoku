@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     FocusDirective,
-    /*NgClass,*/
     GameboardComponent
   ],
   imports: [

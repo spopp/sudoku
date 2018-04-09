@@ -1,7 +1,8 @@
 import { Component, OnInit,  Input } from '@angular/core';
 
 import { FocusDirective } from "../focus.directive";  
-import { GameModel } from '../game-model';
+import { GameModel } from '../shared/game.model';
+
 import { GameCreatorService } from '../game-creator.service';
 import { GameSolutionService } from '../game-solution.service';
 
@@ -17,7 +18,7 @@ import { GameSolutionService } from '../game-solution.service';
 })
 export class GameboardComponent implements OnInit {
 
-  /*@Input('focus')*/
+  @Input('focus')
 
   game: GameModel;
   originalGame: GameModel;
@@ -31,7 +32,7 @@ export class GameboardComponent implements OnInit {
 
   ngOnInit() {
     this.game = this.updateGame();
-    this.originalGame = this.creatorService.import(this.game.export())
+    this.originalGame = new GameModel().deserialize(this.game);
     console.log('gameboard.component ngOnInit ' + this.game);
   }
 
