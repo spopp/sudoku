@@ -1,13 +1,12 @@
 <div class="board-container">
 
 <div class="game-layout">
-  <div class="game-row" *ngFor="let row of game.getRow(i); let i = index;">
+  <div class="game-row" *ngFor="let row of game.values; let i = index;">
     <div class="game-cell" *ngFor="let column of row; let n = index;">
       <input [focus]="i === columnPos && n === rowPos"
-        maxlength=1 
-        [value]="format(game.getValue(n, i)"
-        [disabled]="! cellIsEmpty(n, i)"
-      >
+      [value]="format(game.values[n][i])"
+      [disabled]="! cellIsEmpty(n, i)"
+      (keyup)="onKey($event)" >
     </div>
 
   </div>

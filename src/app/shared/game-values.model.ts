@@ -1,15 +1,21 @@
 import { Deserializable } from "./deserializable.model";
 
+// https://blog.simontest.net/extend-array-with-typescript-965cc1134b3
 
-export class GameValues implements Deserializable<GameValues> {
+export class GameValues extends Array<Array<number>> implements Deserializable<GameValues> {
 
-  values: number[][];
+  constructor(items?: Array<number>) {
+    super(items);
 
-  constructor() {
+    Object.setPrototypeOf(this, Object.create(GameValues.prototype));
+  }
+
+  name() {
+    return "GameValues"
   }
 
   getRow(index: number): number[] {
-    return this.values[index]
+    return this[index];
   }
 
   getValue(row, column) : number {
